@@ -29,7 +29,7 @@ Il est possible d'indiquer :
 
 # FAQ
 
--   **Est-ce que le plugin s'appuie sur des API tiers ?**
+-   **Est-ce que le plugin s'appui sur des API tiers ?**
 
 >Non, le plugin fait le calcul en interne par rapport à la température, l’humidité et la vitesse du vent
 
