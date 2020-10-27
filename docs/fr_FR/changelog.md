@@ -19,15 +19,15 @@ pluginId: temperature
 - Clean Log + code
 - Correction bug suppression commande Refresh
 - Correction Warning PHP
-- Correction variable non défini
-- Correction Bug création des commandes
+- Correction variable non définie
+- Correction Bug créations des commandes
 
 # Version 20200523
 
 - Ajout de log supplémentaire en mode DEBUG
 - Nettoyage log
 - Ajout bouton pour recréer les commandes
-- Modification création des commandes
+- Modification créations des commandes
 - Résolution Bug cron
 - Amélioration affichage V4
 - Mise à jour de la doc
@@ -49,7 +49,7 @@ pluginId: temperature
 - Possibilité de renommer les commandes
 - Commande Refresh (sur la tuile, scénario etc)
 - Amélioration des logs
-- Correction type de generic
+- Correction type de générique
 - Correction Bug : l'actualisation des données ne se fait plus si l'équipement est désactivé
 - Nettoyage des dossiers
 - Ajout une pré-alarme pour le seuil Humidex
