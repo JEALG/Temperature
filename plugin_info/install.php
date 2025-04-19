@@ -18,31 +18,120 @@
 
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
+function temperature_install()
+{
+    jeedom::getApiKey('temperature');
 
-function temperature_install() {
-    config::save('functionality::cron5::enable', 1, 'rosee');
-    config::save('functionality::cron30::enable', 0, 'rosee');
+    config::save('functionality::cron5::enable', 0, 'temperature');
+    config::save('functionality::cron10::enable', 0, 'temperature');
+    config::save('functionality::cron15::enable', 0, 'temperature');
+    config::save('functionality::cron30::enable', 1, 'temperature');
+    config::save('functionality::cronhourly::enable', 0, 'temperature');
+
+    $cron = cron::byClassAndFunction('temperature', 'pull');
+    if (is_object($cron)) {
+        $cron->remove();
+    }
+
+    //message::add('Plugin Température', 'Merci pour l\'installation du plugin.');
+}
+
+function temperature_update()
+{
+    jeedom::getApiKey('temperature');
+    $cron = cron::byClassAndFunction('temperature', 'pull');
+    if (is_object($cron)) {
+        $cron->remove();
+    }
+
+    if (config::byKey('functionality::cron5::enable', 'temperature', -1) == -1) {
+        config::save('functionality::cron5::enable', 0, 'temperature');
+    }
+
+    if (config::byKey('functionality::cron10::enable', 'temperature', -1) == -1) {
+        config::save('functionality::cron10::enable', 0, 'temperature');
+    }
+
+    if (config::byKey('functionality::cron15::enable', 'temperature', -1) == -1) {
+        config::save('functionality::cron15::enable', 0, 'temperature');
+    }
+
+    if (config::byKey('functionality::cron30::enable', 'temperature', -1) == -1) {
+        config::save('functionality::cron30::enable', 1, 'temperature');
+    }
+
+    if (config::byKey('functionality::cronHourly::enable', 'temperature', -1) == -1) {
+        config::save('functionality::cronHourly::enable', 0, 'temperature');
+    }
+
+    $plugin = plugin::byId('temperature');
+    $eqLogics = eqLogic::byType($plugin->getId());
+    foreach ($eqLogics as $eqLogic) {
+        //updateLogicalId($eqLogic, 'alert_1',null,null);
+        updateLogicalId($eqLogic, 'IndiceChaleur', 'heat_index', 1);
+        updateLogicalId($eqLogic, 'alerte_humidex', 'alert_2', null);
+        updateLogicalId($eqLogic, 'info_inconfort', 'td', null);
+        updateLogicalId($eqLogic, 'palerte_humidex', 'alert_1', null);
+        updateLogicalId($eqLogic, 'heat_index', 'humidex', 0, 'Indice de Chaleur (Humidex)', 'DELETE'); // Modification du 7/12/2020
+        updateLogicalId($eqLogic, 'windchill', null, 1, 'Température ressentie'); // Modification du 7/12/2020
+        updateLogicalId($eqLogic, 'td', null, null, 'Message'); // Modification du 7/12/2020
+        updateLogicalId($eqLogic, 'td_num', null, null, 'Message numérique'); // Modification du 7/12/2020
+    }
+    //Suppression commande car il y a un soucis avec modification du 13/09/2024
+    removeLogicId('td');
+    //resave eqs for new cmd:
+    try {
+        $eqs = eqLogic::byType('temperature');
+        foreach ($eqs as $eq) {
+            $eq->save();
+        }
+    } catch (Exception $e) {
+        $e = print_r($e, 1);
+        log::add('temperature', 'error', 'temperature_update ERROR: ' . $e);
+    }
+
+    //message::add('Plugin Température', 'Merci pour la mise à jour de ce plugin, consultez le changelog.');
+    foreach (eqLogic::byType('temperature') as $temperature) {
+        $temperature->getInformations();
+    }
+}
+
+function updateLogicalId($eqLogic, $from, $to, $_historizeRound = null, $name = null, $unite = null)
+{
+    $command = $eqLogic->getCmd(null, $from);
+    if (is_object($command)) {
+        if ($to != null) {
+            $command->setLogicalId($to);
+        }
+        if ($_historizeRound != null) {
+            $command->setConfiguration('historizeRound', $_historizeRound);
+        }
+        if ($name != null) {
+            $command->setName($name);
+        }
+        if ($unite != null) {
+            if ($unite == 'DELETE') {
+                $unite = null;
+            }
+            $command->setUnite($unite);
+        }
+        $command->save();
+    }
+}
+function removeLogicId($cmdDel)
+{
+    $eqLogics = eqLogic::byType('temperature');
+    foreach ($eqLogics as $eqLogic) {
+        $cmd = $eqLogic->getCmd(null, $cmdDel);
+        if (is_object($cmd)) {
+            $cmd->remove();
+        }
+    }
+}
+function temperature_remove()
+{
     $cron = cron::byClassAndFunction('temperature', 'pull');
     if (is_object($cron)) {
         $cron->remove();
     }
 }
-
-function temperature_update() {
-    if (config::byKey('functionality::cron5::enable', 'rosee', -1) == -1)
-        config::save('functionality::cron5::enable', 1, 'rosee');
-    if (config::byKey('functionality::cron30::enable', 'rosee', -1) == -1)
-        config::save('functionality::cron30::enable', 0, 'rosee');
-    $cron = cron::byClassAndFunction('temperature', 'pull');
-    if (is_object($cron)) {
-        $cron->remove();
-    }
-}
-
-function temperature_remove() {
-    $cron = cron::byClassAndFunction('temperature', 'pull');
-    if (is_object($cron)) {
-        $cron->remove();
-    }
-}
-?>
