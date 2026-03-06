@@ -353,12 +353,12 @@ class temperature extends eqLogic
         }
         log::add('temperature', 'debug', '| ───▶︎ ' . __('Vent', __FILE__) . ' : ' . $wind  . ' ' . $wind_unite);
 
-        /*  ********************** Seuil PRE-Alerte Humidex*************************** => VALABLE AUSSI POUR LE PLUGIN TEMPERATURE/ROSEE*/
+        /*  ********************** Seuil Préalerte Humidex*************************** => VALABLE AUSSI POUR LE PLUGIN TEMPERATURE/ROSEE*/
         $pre_seuil = $this->getConfiguration('PRE_SEUIL');
-        $msg_log_pre_seuil = __('Seuil Pré-Alerte Humidex', __FILE__);
+        $msg_log_pre_seuil = __('Seuil Préalerte Humidex', __FILE__);
         if ($pre_seuil === '') {
             $pre_seuil = 30;
-            $msg_log_pre_seuil =  __('Aucun Seuil Pré-Alerte Humidex de saisie, valeur par défaut', __FILE__);
+            $msg_log_pre_seuil =  __('Aucun Seuil Préalerte Humidex de saisie, valeur par défaut', __FILE__);
         }
         log::add('temperature', 'debug', '| ───▶︎ ' . $msg_log_pre_seuil . ' : ' .  $pre_seuil . ' °C');
 
@@ -529,7 +529,7 @@ class temperature extends eqLogic
         } else {
             $alert_2 = 0;
         }
-        log::add('temperature', 'debug', '| ───▶︎ '  . __('Seuil Pré-alerte', __FILE__) . ' Humidex : '  . $alert_1 . ' / '  . __('Seuil Alerte Haute', __FILE__) . ' Humidex : ' . $alert_2);
+        log::add('temperature', 'debug', '| ───▶︎ '  . __('Seuil Préalerte', __FILE__) . ' Humidex : '  . $alert_1 . ' / '  . __('Seuil Alerte Haute', __FILE__) . ' Humidex : ' . $alert_2);
 
         return array($windchill, $td, $td_num, $humidex, $alert_1, $alert_2);
     }

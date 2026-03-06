@@ -16,7 +16,7 @@ Il faut ajouter des équipements pour la température, l’humidité et la vites
 Il est possible d'indiquer :
 
 - Un seuil d'alerte pour l'indice de chaleur (HUMIDEX). Par défaut, c'est 40°C qui déclenche l'alerte
-- Un seuil de pré-alerte pour l'indice de chaleur (HUMIDEX). Par défaut, c'est 30°C qui déclenche la pré-alerte
+- Un seuil de préalerte pour l'indice de chaleur (HUMIDEX). Par défaut, c'est 30°C qui déclenche la préalerte
 
 # Températures ressenties
 
