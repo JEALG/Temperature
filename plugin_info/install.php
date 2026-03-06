@@ -66,6 +66,7 @@ function temperature_update()
 
     $plugin = plugin::byId('temperature');
     $eqLogics = eqLogic::byType($plugin->getId());
+    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 1/4 :/fg:───▶︎ ' . (__('Mise en place des nouveautés', __FILE__)));
     foreach ($eqLogics as $eqLogic) {
         //updateLogicalId($eqLogic, 'alert_1',null,null);
         updateLogicalId($eqLogic, 'IndiceChaleur', 'heat_index', 1);
@@ -77,9 +78,12 @@ function temperature_update()
         updateLogicalId($eqLogic, 'td', null, null, 'Message'); // Modification du 7/12/2020
         updateLogicalId($eqLogic, 'td_num', null, null, 'Message numérique'); // Modification du 7/12/2020
     }
+    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 2/4 :/fg:───▶︎ ' . (__('Suppression des commandes obsolètes', __FILE__)));
     //Suppression commande car il y a un soucis avec modification du 13/09/2024
     removeLogicId('td');
     //resave eqs for new cmd:
+    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 3/4 :/fg:───▶︎ ' . (__('Sauvegarde des équipements', __FILE__)));
+
     try {
         $eqs = eqLogic::byType('temperature');
         foreach ($eqs as $eq) {
@@ -89,7 +93,7 @@ function temperature_update()
         $e = print_r($e, 1);
         log::add('temperature', 'error', 'temperature_update ERROR: ' . $e);
     }
-
+    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 4/4 :/fg:───▶︎ ' . (__('Mise à jour des équipement', __FILE__)));
     //message::add('Plugin Température', 'Merci pour la mise à jour de ce plugin, consultez le changelog.');
     foreach (eqLogic::byType('temperature') as $temperature) {
         $temperature->getInformations();
@@ -104,6 +108,7 @@ function updateLogicalId($eqLogic, $from, $to, $_historizeRound = null, $name = 
             $command->setLogicalId($to);
         }
         if ($_historizeRound != null) {
+            log::add('temperature', 'debug', '[INFO] ' . __('Correction de l\'Arrondi (Nombre de décimale) pour', __FILE__) . ' : ' . $from . ' ->  ' . __('Par la valeur', __FILE__) . ' : ' . $_historizeRound);
             $command->setConfiguration('historizeRound', $_historizeRound);
         }
         if ($name != null) {
