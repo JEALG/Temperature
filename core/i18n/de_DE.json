@@ -8,7 +8,7 @@
     "plugins\/temperature\/core\/class\/temperature.class.php": {
         "Alerte Humidex": "Humidex-Alarm",
         "Aucun Seuil Alerte Humidex de saisie, valeur par défaut": "Keine Schwellenwert Alarm Humidex Eingabe, Standardwert",
-        "Aucun Seuil Pré-Alerte Humidex de saisie, valeur par défaut": "Keine Vorwarnschwelle Humidex Eingabe, Standardwert",
+        "Aucun Seuil Préalerte Humidex de saisie, valeur par défaut": "Keine Eingabe Humidex-Frühwarnschwelle, Standardwert",
         "Aucun inconfort": "Kein Unbehagen",
         "Aucune unité pour la vitesse du vent n\\'est renseignée, le plugin va faire les calculs en utiisant l\\'unité : km\/h": "Da keine Einheit für die Windgeschwindigkeit angegeben ist, wird das Plugin die Berechnungen mit der Einheit: km\/h durchführen",
         "Calcul": "Berechnung",
@@ -61,8 +61,8 @@
         "Sensation de frais ou de froid": "Frisches oder kaltes Gefühl",
         "Seuil Alerte Haute": "Schwelle Hoher Alarm",
         "Seuil Alerte Humidex": "Humidex Alarmschwelle",
-        "Seuil Pré-Alerte Humidex": "Humidex Pre-Alert Threshold",
-        "Seuil Pré-alerte": "Schwellenwert Vorwarnung",
+        "Seuil Préalerte": "Schwellenwert Frühwarnung",
+        "Seuil Préalerte Humidex": "Schwellenwert für Humidex-Frühwarnung",
         "Temperature": "Temperatur",
         "Température": "Temperatur",
         "Température avec Offset": "Temperatur mit Offset",
@@ -100,7 +100,7 @@
         "(%) Humidité Relative": "(%) Relative Luftfeuchtigkeit",
         "(km\/h) Vitesse du vent": "(km\/h) Windgeschwindigkeit",
         "(°C) Seuil de déclenchement de l'alerte inconfort de l'indice de température, 40°C par défaut (seuil de danger)": "(°C) Schwelle für die Auslösung der Unbehaglichkeitswarnung des Temperaturindexes, standardmäßig 40°C (Gefahrenschwelle)",
-        "(°C) Seuil de déclenchement de la pré-alerte inconfort de l'indice de température, 30°C par défaut": "(°C) Schwelle für die Auslösung der Vorwarnung Unbehaglichkeit des Temperaturindex, 30°C Standard",
+        "(°C) Seuil de déclenchement de la préalerte inconfort de l'indice de température, 30°C par défaut": "(°C) Auslöseschwelle für die Vorwarnung „Unbehagen“ des Temperaturindex, Standardwert 30 °C",
         "(°C) Température": "(°C) Temperatur",
         "30": "30",
         "40": "40",
@@ -133,7 +133,7 @@
         "Recréer les commandes": "Befehle neu erstellen",
         "Sauvegarder": "Zu schützen",
         "Seuil Alerte Haute Humidex": "Humidex High Alert Threshold",
-        "Seuil Pré-alerte Humidex": "Humidex Vorwarnschwelle",
+        "Seuil Préalerte Humidex": "Schwellenwert für Humidex-Frühwarnung",
         "Supprimer": "Entfernen",
         "Température": "Temperatur",
         "Type": "Typ",
@@ -143,5 +143,14 @@
         "À ajuster en fonction des observations locales et de la position de la sonde, 0 par défaut.": "Wird entsprechend den örtlichen Beobachtungen und der Position der Sonde angepasst, Standard ist 0.",
         "Équipement non visible": "Nicht sichtbare Ausstattung",
         "Équipement visible": "Sichtbare Ausstattung"
+    },
+    "plugins\/temperature\/plugin_info\/install.php": {
+        "Correction de l\\'Arrondi (Nombre de décimale) pour": "Rundungskorrektur (Anzahl der Dezimalstellen) für",
+        "Mise en place des nouveautés": "Einführung von Neuerungen",
+        "Mise à jour des équipement": "Aktualisierung der Ausrüstung",
+        "Par la valeur": "Nach Wert",
+        "Sauvegarde des équipements": "Sicherung der Ausrüstung",
+        "Suppression des commandes obsolètes": "Entfernung veralteter Befehle",
+        "Étape": "Schritt"
     }
 }
