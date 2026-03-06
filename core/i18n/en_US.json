@@ -8,7 +8,7 @@
     "plugins\/temperature\/core\/class\/temperature.class.php": {
         "Alerte Humidex": "Humidex Alert",
         "Aucun Seuil Alerte Humidex de saisie, valeur par défaut": "None Input Humidex alert threshold, default value",
-        "Aucun Seuil Pré-Alerte Humidex de saisie, valeur par défaut": "None Humidex pre-warning threshold, default value",
+        "Aucun Seuil Préalerte Humidex de saisie, valeur par défaut": "No Humidex Early Warning Threshold entered, default value",
         "Aucun inconfort": "No discomfort",
         "Aucune unité pour la vitesse du vent n\\'est renseignée, le plugin va faire les calculs en utiisant l\\'unité : km\/h": "No unit for wind speed is entered, the plugin will calculate using the unit: km\/h",
         "Calcul": "Calcul",
@@ -61,8 +61,8 @@
         "Sensation de frais ou de froid": "Feeling cool or cold",
         "Seuil Alerte Haute": "High alert threshold",
         "Seuil Alerte Humidex": "Humidex Alert Threshold",
-        "Seuil Pré-Alerte Humidex": "Humidex Pre-Alert Threshold",
-        "Seuil Pré-alerte": "Pre-alarm threshold",
+        "Seuil Préalerte": "Early warning threshold",
+        "Seuil Préalerte Humidex": "Humidex Early Warning Threshold",
         "Temperature": "Temperature",
         "Température": "Temperature",
         "Température avec Offset": "Temperature with offset",
@@ -100,7 +100,7 @@
         "(%) Humidité Relative": "(%) Relative humidity",
         "(km\/h) Vitesse du vent": "(km\/h) Wind speed",
         "(°C) Seuil de déclenchement de l'alerte inconfort de l'indice de température, 40°C par défaut (seuil de danger)": "(°C) Threshold for triggering the temperature index discomfort alert, 40°C by default (danger threshold)",
-        "(°C) Seuil de déclenchement de la pré-alerte inconfort de l'indice de température, 30°C par défaut": "(°C) Threshold for triggering the temperature index discomfort pre-alert, 30°C by default",
+        "(°C) Seuil de déclenchement de la préalerte inconfort de l'indice de température, 30°C par défaut": "(°C) Threshold for triggering the temperature index discomfort pre-alert, default value 30°C",
         "(°C) Température": "(°C) Temperature",
         "30": "30",
         "40": "40",
@@ -133,7 +133,7 @@
         "Recréer les commandes": "Recreate orders",
         "Sauvegarder": "Save",
         "Seuil Alerte Haute Humidex": "High Humidex Alert Threshold",
-        "Seuil Pré-alerte Humidex": "Humidex Pre-Alert Threshold",
+        "Seuil Préalerte Humidex": "Humidex Early Warning Threshold",
         "Supprimer": "Delete",
         "Température": "Temperature",
         "Type": "Type",
@@ -143,5 +143,14 @@
         "À ajuster en fonction des observations locales et de la position de la sonde, 0 par défaut.": "To be adjusted according to local observations and the position of the probe, 0 by default.",
         "Équipement non visible": "Visible equipment",
         "Équipement visible": "Visible equipment"
+    },
+    "plugins\/temperature\/plugin_info\/install.php": {
+        "Correction de l\\'Arrondi (Nombre de décimale) pour": "Rounding correction (number of decimal places) for",
+        "Mise en place des nouveautés": "Implementation of new features",
+        "Mise à jour des équipement": "Equipment update",
+        "Par la valeur": "By value",
+        "Sauvegarde des équipements": "Equipment backup",
+        "Suppression des commandes obsolètes": "Removal of obsolete commands",
+        "Étape": "Step"
     }
 }
