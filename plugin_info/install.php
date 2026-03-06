@@ -83,11 +83,10 @@ function temperature_update()
     removeLogicId('td');
     //resave eqs for new cmd:
     log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 3/4 :/fg:───▶︎ ' . (__('Sauvegarde des équipements', __FILE__)));
-
     try {
         $eqs = eqLogic::byType('temperature');
         foreach ($eqs as $eq) {
-            $eq->save();
+            $eq->save(true);
         }
     } catch (Exception $e) {
         $e = print_r($e, 1);
@@ -120,7 +119,7 @@ function updateLogicalId($eqLogic, $from, $to, $_historizeRound = null, $name = 
             }
             $command->setUnite($unite);
         }
-        $command->save();
+        $command->save(true);
     }
 }
 function removeLogicId($cmdDel)
