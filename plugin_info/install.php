@@ -92,7 +92,7 @@ function temperature_update()
         $e = print_r($e, 1);
         log::add('temperature', 'error', 'temperature_update ERROR: ' . $e);
     }
-    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 4/4 :/fg:───▶︎ ' . (__('Mise à jour des équipement', __FILE__)));
+    log::add('temperature', 'debug', '│ :fg-warning:' . (__('Étape', __FILE__)) . ' 4/4 :/fg:───▶︎ ' . (__('Mise à jour des équipements', __FILE__)));
     //message::add('Plugin Température', 'Merci pour la mise à jour de ce plugin, consultez le changelog.');
     foreach (eqLogic::byType('temperature') as $temperature) {
         $temperature->getInformations();
